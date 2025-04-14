@@ -1,0 +1,93 @@
+.Header {
+  width: 100%;
+  height: 80px;
+  box-shadow: 0px 0px 5px gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  background: #000;
+  z-index: 99;
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    &__left {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      .link {
+        color: white;
+        font-size: clamp(0.813rem, 0.699rem + 0.57vw, 1.125rem);
+        font-weight: 600;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 3px;
+      }
+      .active {
+        color: white;
+        font-size: clamp(0.813rem, 0.699rem + 0.57vw, 1.125rem);
+        font-weight: 600;
+        border-bottom: 2px solid white;
+        padding-bottom: 3px;
+      }
+    }
+    &__right {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      .language {
+        color: white;
+        height: 40px;
+        font-weight: 600;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        a {
+          font-size: 15px;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+        .langBlock {
+          position: absolute;
+          top: 40px;
+          background: white;
+          width: 120px;
+          border-radius: 5px;
+          span {
+            width: 100%;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            color: black;
+            padding-left: 10px;
+            transition: 0.2s ease-in-out;
+            &:hover {
+              background: rgba(128, 128, 128, 0.311);
+            }
+          }
+        }
+      }
+      button {
+        background: transparent;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        border: none;
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+      }
+      a {
+        color: white;
+        font-size: 18px;
+      }
+    }
+  }
+}

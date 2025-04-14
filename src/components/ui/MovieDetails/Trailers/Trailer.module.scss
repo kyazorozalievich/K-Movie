@@ -1,0 +1,41 @@
+.Trailer {
+    padding-bottom: 50px;
+  .content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    h2 {
+      font-size: clamp(0.938rem, 0.71rem + 1.14vw, 1.563rem);
+      width: 100%;
+      display: flex;
+      align-items: start;
+    }
+    .trailerVideos {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: start;
+      width: 100%;
+      gap: 20px;
+      iframe {
+        width: 400px;
+        height: 200px;
+        transition: 0.3s ease-in-out;
+        &:hover {
+          transform: translateY(-5px);
+        }
+      }
+    }
+    button {
+      width: 150px;
+      padding-block: 10px;
+      font-weight: 600;
+      border-radius: 10px;
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      box-shadow: 0px 2px 10px gray;
+    }
+  }
+}

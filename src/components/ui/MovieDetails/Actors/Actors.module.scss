@@ -1,0 +1,53 @@
+.Actors {
+  padding-block: 50px;
+  .content {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+    h2 {
+      font-size: clamp(0.938rem, 0.71rem + 1.14vw, 1.563rem);
+    }
+    .actorCards {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      width: 100%;
+      height: 300px;
+      overflow-x: scroll;
+      gap: 20px;
+      scrollbar-width: none;
+      .card {
+        width: 185px;
+        height: 250px;
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+        gap: 10px;
+        border: 2px solid rgba(128, 128, 128, 0.432);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+        &:hover {
+          transform: translateY(-5px);
+        }
+        img {
+          width: 180px;
+          height: 180px;
+          object-fit: cover;
+          border-top-right-radius: 10px;
+          border-top-left-radius: 10px;
+        }
+        h3 {
+          font-size: 15px;
+          padding-left: 10px;
+        }
+        h5 {
+          font-size: 15px;
+          padding-left: 10px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
