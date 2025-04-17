@@ -14,7 +14,7 @@ import {
   MdOutlineKeyboardDoubleArrowRight,
 } from "react-icons/md";
 
-const PopularMovie = () => {
+const PopularMovie = () => { 
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
   const { language } = useContext(MovieContext);

@@ -7,6 +7,8 @@ import TopRatedMovie from "./components/pages/toprated/TopRatedMovie";
 import { Route, Routes } from "react-router-dom";
 import Details from "./components/ui/MovieDetails/Details";
 import ActorDetail from "./components/ui/MovieDetails/Actors/ActorDetail/ActorDetail";
+import Search from "./components/pages/search/Search";
+import Favorite from "./components/pages/favorite/Favorite";
 
 function App() {
   const pages = [
@@ -35,9 +37,19 @@ function App() {
       href: "/actorDetails/:actorid",
       page: <ActorDetail />,
     },
+    {
+      id: 6,
+      href: "/search",
+      page: <Search />,
+    },
+    {
+      id: 7,
+      href: "/favorite",
+      page: <Favorite />,
+    },
   ];
   return (
-    <>
+    <div className="app">
       <Header />
       <Routes>
         {pages.map((el) => (
@@ -45,7 +57,7 @@ function App() {
         ))}
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 }
 

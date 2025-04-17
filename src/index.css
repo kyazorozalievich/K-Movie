@@ -32,6 +32,16 @@ textarea {
   width: 0;
 }
 
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  Footer  {
+    margin-top: 0 auto;
+  }
+}
+
 .container {
   max-width: 1340px;
   width: 100%;

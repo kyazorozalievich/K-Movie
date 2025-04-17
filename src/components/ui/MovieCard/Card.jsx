@@ -15,7 +15,7 @@ const Card = ({ el }) => {
   };
 
   return (
-    <div className={scss.Card} onClick={() => nav(`/moviedetails/${el.id}`)}>
+    <div className={scss.Card}>
       <div className={scss.rate}>
         <CircularProgressbar
           value={Math.round(el.vote_average * 10)}
@@ -31,8 +31,9 @@ const Card = ({ el }) => {
       <img
         src={`https://media.themoviedb.org/t/p/w440_and_h660_face/${el.poster_path}`}
         alt=""
+        onClick={() => nav(`/moviedetails/${el.id}`)}
       />
-      <div className={scss.text}>
+      <div className={scss.text} onClick={() => nav(`/moviedetails/${el.id}`)}>
         <h3>
           {el.title.length > 15 ? el.title.slice(0, 15) + "..." : el.title}
         </h3>

@@ -16,7 +16,7 @@ import { MovieContext } from "../../context";
 const Details = () => {
   const { movieid } = useParams();
   const [dtl, setDetail] = useState({});
-  const { language } = useContext(MovieContext);
+  const { language, favorite, setFavorite } = useContext(MovieContext);
 
   async function getMovieDetails(key) {
     let details = await axios(
@@ -26,6 +26,21 @@ const Details = () => {
     setDetail(data);
     console.log(data, "DetailPage");
   }
+
+  const addToFavorite = () => {
+    let findFavorite = favorite.find((el) => el.id === dtl.id);
+    if (findFavorite) {
+      let deleteFavorite = favorite.filter((el) => el.id !== dtl.id);
+      setFavorite(deleteFavorite);
+      localStorage.setItem("favorite", JSON.stringify(deleteFavorite));
+    } else {
+      let result = [...favorite, dtl];
+      setFavorite(result);
+      localStorage.setItem("favorite", JSON.stringify(result));
+    }
+  };
+
+  let heart = favorite.some((el) => el.id === dtl.id);
 
   useEffect(() => {
     getMovieDetails(api_key);
@@ -44,9 +59,16 @@ const Details = () => {
             <div className={scss.content}>
               <div className={scss.ImageBlock}>
                 <div className={scss.favorite}>
-                  <a>
-                    <FaRegHeart />
-                    {/* <FaHeart /> */}
+                  <a onClick={() => addToFavorite()}>
+                    {heart ? (
+                      <FaHeart
+                        style={{
+                          color: "red",
+                        }}
+                      />
+                    ) : (
+                      <FaRegHeart />
+                    )}
                   </a>
                 </div>
                 <img
@@ -107,9 +129,11 @@ const Details = () => {
                       dtl.overview
                     )
                   ) : (
-                    <i>{ language === "ru-RU"
-                      ? "Данные отсутвуют"
-                      : "No data available"}</i>
+                    <i>
+                      {language === "ru-RU"
+                        ? "Данные отсутвуют"
+                        : "No data available"}
+                    </i>
                   )}
                 </p>
               </div>

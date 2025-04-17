@@ -1,19 +1,18 @@
 "use client";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import scss from "./Header.module.scss";
-import { IoSearch } from "react-icons/io5";
 import { FaAngleDown, FaAngleRight } from "react-icons/fa";
 import { useState } from "react";
 import logo from "../../../assets/img/logo.png";
 import { useContext } from "react";
 import { MovieContext } from "../../context";
-import { RiChatHeartFill } from "react-icons/ri";
+import { BsFillBookmarkHeartFill } from "react-icons/bs";
 
 const Header = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const [langOpen, setLangOpen] = useState(false);
-  const navigate = useNavigate();
-  const { language, setLanguage } = useContext(MovieContext);
+  const { language, setLanguage, favorite } = useContext(MovieContext);
 
   return (
     <section className={scss.Header}>
@@ -77,13 +76,13 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <button>
-              <IoSearch />
+            <button onClick={() => navigate(`/search`)}>
               {language === "ru-RU" ? "Искать" : "Search"}
               <FaAngleRight />
             </button>
-            <Link to="/">
-              <RiChatHeartFill />
+            <Link to="/favorite">
+              {favorite.length > 0 && <span>{favorite.length}</span>}
+              <BsFillBookmarkHeartFill />
             </Link>
           </div>
         </div>
