@@ -34,7 +34,7 @@ const Card = ({ el }) => {
       />
       <div className={scss.text}>
         <h3>
-          {el.title.length > 18 ? el.title.slice(0, 18) + "..." : el.title}
+          {el.title.length > 15 ? el.title.slice(0, 15) + "..." : el.title}
         </h3>
         <h4>
           <span>
@@ -44,8 +44,8 @@ const Card = ({ el }) => {
         </h4>
         <p>
           {el.overview ? (
-            el.overview.length > 50 ? (
-              el.overview.slice(0, 50) + "..."
+            el.overview.length > 45 ? (
+              el.overview.slice(0, 45) + "..."
             ) : (
               el.overview
             )

@@ -4,14 +4,17 @@ import { useEffect } from "react";
 import { useState } from "react";
 import noneUser from "../../../../assets/img/noneUser.jpg";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { MovieContext } from "../../../context";
 
 const Actors = ({ actorId, apiKey }) => {
   const [actorsData, setActorsData] = useState([]);
   const nav = useNavigate();
+  const { language } = useContext(MovieContext);
 
   async function getActors(key) {
     const { data } = await axios(
-      `https://api.themoviedb.org/3/movie/${actorId}/credits?api_key=${key}&language=ru-RU`
+      `https://api.themoviedb.org/3/movie/${actorId}/credits?api_key=${key}&language=${language}`
     );
     setActorsData(data.cast);
     console.log(data.cast, "actors");
@@ -19,13 +22,13 @@ const Actors = ({ actorId, apiKey }) => {
 
   useEffect(() => {
     getActors(apiKey);
-  }, [actorId, apiKey]);
+  }, [actorId, apiKey, language]);
 
   return (
     <section className={scss.Actors}>
       <div className="container">
         <div className={scss.content}>
-          <h2>В Главных Ролях</h2>
+          <h2>{language === "ru-RU" ? "В Главных Ролях" : "Starring"}</h2>
           <div className={scss.actorCards}>
             {actorsData.map((el, idx) => (
               <div

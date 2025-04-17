@@ -1,0 +1,79 @@
+.ActorDetail {
+  padding-top: 120px;
+  .content {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    .mainInfo {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      width: 100%;
+      .mainImg {
+        width: 350px;
+        height: 500px;
+        object-fit: cover;
+      }
+      .text {
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+        gap: 20px;
+        width: 70%;
+        h2 {
+          font-size: clamp(1.125rem, 0.852rem + 1.36vw, 1.875rem);
+        }
+        div {
+          display: flex;
+          align-items: start;
+          flex-direction: column;
+          gap: 10px;
+          width: 100%;
+          h3 {
+            font-size: clamp(0.938rem, 0.824rem + 0.57vw, 1.25rem);
+          }
+          p {
+            font-size: 15px;
+            line-height: 25px;
+            span {
+              cursor: pointer;
+              margin-left: 10px;
+              color: orange;
+            }
+          }
+        }
+      }
+    }
+    h2 {
+      font-size: 25px;
+    }
+    .actorInfo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      .text {
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+        gap: 10px;
+        h3 {
+          font-size: 18px;
+        }
+        h4 {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          font-size: 15px;
+          font-weight: 300;
+          span {
+            font-size: 15px;
+            color: yellow;
+          }
+        }
+      }
+    }
+  }
+}

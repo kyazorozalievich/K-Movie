@@ -1,26 +1,31 @@
 "use client";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import scss from "./Header.module.scss";
-import { BsBox2HeartFill } from "react-icons/bs";
-import { IoBookmarks, IoSearch } from "react-icons/io5";
+import { IoSearch } from "react-icons/io5";
 import { FaAngleDown, FaAngleRight } from "react-icons/fa";
 import { useState } from "react";
+import logo from "../../../assets/img/logo.png";
+import { useContext } from "react";
+import { MovieContext } from "../../context";
+import { RiChatHeartFill } from "react-icons/ri";
 
 const Header = () => {
   const location = useLocation();
   const [langOpen, setLangOpen] = useState(false);
+  const navigate = useNavigate();
+  const { language, setLanguage } = useContext(MovieContext);
 
   return (
     <section className={scss.Header}>
       <div className="container">
         <div className={scss.header}>
           <div className={scss.header__left}>
-            <h1>Logo</h1>
+            <img src={logo} alt="" onClick={() => navigate("/")} />
             <NavLink
               to="/"
               className={location.pathname === "/" ? scss.active : scss.link}
             >
-              Главная
+              {language === "ru-RU" ? "Главная" : "Main"}
             </NavLink>
             <NavLink
               to="/popular"
@@ -28,7 +33,7 @@ const Header = () => {
                 location.pathname === "/popular" ? scss.active : scss.link
               }
             >
-              Популярное
+              {language === "ru-RU" ? "Популярное" : "Popular"}
             </NavLink>
             <NavLink
               to="/toprated"
@@ -36,7 +41,7 @@ const Header = () => {
                 location.pathname === "/toprated" ? scss.active : scss.link
               }
             >
-              Топ в Рейтинге
+              {language === "ru-RU" ? "Топ в Рейтинге" : "Top Rated"}
             </NavLink>
           </div>
           <div className={scss.header__right}>
@@ -46,7 +51,8 @@ const Header = () => {
               onMouseLeave={() => setLangOpen(false)}
             >
               <a>
-                Языки <FaAngleDown />
+                {language === "ru-RU" ? "Языки" : "Language"}
+                <FaAngleDown />
               </a>
               {langOpen && (
                 <div
@@ -54,21 +60,30 @@ const Header = () => {
                   onMouseEnter={() => setLangOpen(true)}
                   onMouseLeave={() => setLangOpen(false)}
                 >
-                  <span>Русский</span>
-                  <span>Английский</span>
+                  <span
+                    onClick={() => {
+                      setLanguage("ru-RU"), setLangOpen(false);
+                    }}
+                  >
+                    {language === "ru-RU" ? "Русский" : "Russia"}
+                  </span>
+                  <span
+                    onClick={() => {
+                      setLanguage("en-US"), setLangOpen(false);
+                    }}
+                  >
+                    {language === "ru-RU" ? "Английский" : "English"}
+                  </span>
                 </div>
               )}
             </div>
             <button>
               <IoSearch />
-              Искать
+              {language === "ru-RU" ? "Искать" : "Search"}
               <FaAngleRight />
             </button>
             <Link to="/">
-              <BsBox2HeartFill />
-            </Link>
-            <Link to="/">
-              <IoBookmarks />
+              <RiChatHeartFill />
             </Link>
           </div>
         </div>

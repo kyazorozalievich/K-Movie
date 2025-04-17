@@ -63,5 +63,35 @@
       flex-wrap: wrap;
       gap: 30px;
     }
+    .pogination {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      .number {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        h3 {
+          font-size: 30px;
+          font-weight: 400;
+          margin-inline: 10px;
+        }
+        .one {
+          font-size: 25px;
+        }
+        .two {
+          font-size: 20px;
+        }
+        .three {
+          font-size: 15px;
+        }
+      }
+      h1 {
+        font-size: 40px;
+        cursor: pointer;
+      }
+    }
   }
 }

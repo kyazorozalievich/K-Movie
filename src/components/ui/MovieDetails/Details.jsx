@@ -10,13 +10,17 @@ import { FaHeart, FaRegClock, FaRegHeart } from "react-icons/fa";
 import { IoIosStar } from "react-icons/io";
 import Actors from "./Actors/Actors";
 import Trailers from "./Trailers/Trailer";
+import { useContext } from "react";
+import { MovieContext } from "../../context";
 
 const Details = () => {
   const { movieid } = useParams();
   const [dtl, setDetail] = useState({});
+  const { language } = useContext(MovieContext);
+
   async function getMovieDetails(key) {
     let details = await axios(
-      `https://api.themoviedb.org/3/movie/${movieid}?api_key=${key}&language=ru-RU`
+      `https://api.themoviedb.org/3/movie/${movieid}?api_key=${key}&language=${language}`
     );
     let { data } = details;
     setDetail(data);
@@ -25,7 +29,7 @@ const Details = () => {
 
   useEffect(() => {
     getMovieDetails(api_key);
-  }, []);
+  }, [language]);
 
   return (
     <>
@@ -59,7 +63,13 @@ const Details = () => {
                 </div>
                 <h2>{dtl.title}</h2>
                 <h5>
-                  <i>{dtl.tagline ? dtl.tagline : "Данные отсутвуют"}</i>
+                  <i>
+                    {dtl.tagline
+                      ? dtl.tagline
+                      : language === "ru-RU"
+                      ? "Данные отсутвуют"
+                      : "No data available"}
+                  </i>
                 </h5>
                 <div className={scss.blocks}>
                   {dtl.genres?.map((el, idx) => (
@@ -87,7 +97,7 @@ const Details = () => {
                     {Math.round(dtl.vote_average * 10)} ({dtl.vote_count} votes)
                   </h5>
                 </div>
-                <h3>Обзор</h3>
+                <h3>{language === "ru-RU" ? "Обзор" : "Review"}</h3>
                 <hr />
                 <p>
                   {dtl.overview ? (
@@ -97,7 +107,9 @@ const Details = () => {
                       dtl.overview
                     )
                   ) : (
-                    <i>Данные отсутвуют</i>
+                    <i>{ language === "ru-RU"
+                      ? "Данные отсутвуют"
+                      : "No data available"}</i>
                   )}
                 </p>
               </div>
