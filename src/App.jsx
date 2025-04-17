@@ -9,6 +9,7 @@ import Details from "./components/ui/MovieDetails/Details";
 import ActorDetail from "./components/ui/MovieDetails/Actors/ActorDetail/ActorDetail";
 import Search from "./components/pages/search/Search";
 import Favorite from "./components/pages/favorite/Favorite";
+import Data from "./components/pages/data/Data";
 
 function App() {
   const pages = [
@@ -46,6 +47,11 @@ function App() {
       id: 7,
       href: "/favorite",
       page: <Favorite />,
+    },
+    {
+      id: 8,
+      href: "/data",
+      page: <Data />,
     },
   ];
   return (
