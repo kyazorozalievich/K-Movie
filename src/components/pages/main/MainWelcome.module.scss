@@ -1,6 +1,5 @@
 .MainWelcome {
-  padding: 100px 0;
-
+  padding: 80px 0;
   .swiper {
     position: relative;
     .content {
@@ -32,7 +31,7 @@
             color: orange;
             text-shadow: 0px 0px 2px orange;
             span {
-              font-size: 20px;
+              font-size: clamp(0.938rem, 0.824rem + 0.57vw, 1.25rem);
             }
           }
           h3 {
@@ -40,14 +39,15 @@
             align-items: center;
             gap: 5px;
             text-shadow: 0px 0px 5px black;
+            font-size: clamp(0.938rem, 0.824rem + 0.57vw, 1.25rem);
           }
         }
         h2 {
-          font-size: 48px;
+          font-size: clamp(1.25rem, 0.614rem + 3.18vw, 3rem);
           text-shadow: 0px 0px 5px black;
         }
         p {
-          font-size: 18px;
+          font-size: clamp(0.813rem, 0.699rem + 0.57vw, 1.125rem);
           width: 60%;
           text-shadow: 0px 0px 5px black;
           margin-block: 20px;
@@ -88,6 +88,53 @@
 
     :global(.swiper-pagination-bullet-active) {
       background-color: #f3c349;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .MainWelcome {
+    .swiper {
+      .content {
+        height: 500px;
+      }
+    }
+  }
+}
+@media (max-width: 700px) {
+  .MainWelcome {
+    padding: 80px 0 40px 0;
+    .swiper {
+      .content {
+        height: 450px;
+        .bg {
+          p {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 400px) {
+  .MainWelcome {
+    .swiper {
+      .content {
+        height: 450px;
+        .bg {
+          width: 100%;
+          h2 {
+            width: 100%;
+          }
+          p {
+            width: 100%;
+          }
+          button  {
+            padding: 10px 10px;
+            gap: 0px;
+          }
+        }
+      }
     }
   }
 }

@@ -1,5 +1,5 @@
 .Trailer {
-    padding-bottom: 50px;
+  padding-bottom: 50px;
   .content {
     display: flex;
     align-items: center;
@@ -19,7 +19,7 @@
       width: 100%;
       gap: 20px;
       iframe {
-        width: 400px;
+        width: 32%;
         height: 200px;
         transition: 0.3s ease-in-out;
         &:hover {
@@ -36,6 +36,64 @@
       border: 2px solid white;
       color: white;
       box-shadow: 0px 2px 10px gray;
+      font-size: clamp(0.75rem, 0.614rem + 0.68vw, 1.125rem);
+    }
+  }
+}
+
+@media (max-width: 1080px) {
+  .Trailer {
+    .content {
+      .trailerVideos {
+        iframe {
+          width: 30%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .Trailer {
+    .content {
+      .trailerVideos {
+        flex-wrap: wrap;
+        gap: 20px;
+        iframe {
+          width: 48%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .Trailer {
+    padding-bottom: 20px;
+    .content {
+      .trailerVideos {
+        iframe {
+          width: 100%;
+          height: 300px;
+        }
+      }
+      button {
+        border-radius: 5px;
+        width: 100px;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .Trailer {
+    .content {
+      .trailerVideos {
+        iframe {
+          width: 100%;
+          height: 200px;
+        }
+      }
     }
   }
 }

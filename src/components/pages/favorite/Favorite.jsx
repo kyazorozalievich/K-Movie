@@ -98,7 +98,7 @@ const Favorite = () => {
               ))
             ) : (
               <center>
-                <img src={noneFav} alt="" />
+                <img src={noneFav} alt="" className={scss.noneImg} />
               </center>
             )}
           </div>

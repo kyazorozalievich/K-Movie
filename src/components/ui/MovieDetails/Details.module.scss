@@ -1,10 +1,10 @@
 .Details {
   width: 100%;
-  height: 80vh;
+  height: 600px;
   background-size: cover;
   background-repeat: no-repeat;
-  padding-top: 80px;
   .DetailBg {
+    padding-top: 80px;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.619);
@@ -131,5 +131,163 @@
         }
       }
     }
+  }
+}
+
+.DetailTextAdap {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .Details {
+    .DetailBg {
+      .content {
+        .DetailText {
+          width: 65%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .Details {
+    .DetailBg {
+      .content {
+        .DetailText {
+          width: 60%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .Details {
+    .DetailBg {
+      .content {
+        .ImageBlock {
+          width: 35%;
+          height: 420px;
+        }
+        .DetailText {
+          height: auto;
+          width: 60%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 730px) {
+  .Details {
+    height: 400px;
+    margin-bottom: 20px;
+    .DetailBg {
+      .content {
+        .ImageBlock {
+          display: none;
+        }
+        .DetailText {
+          display: none;
+        }
+      }
+    }
+  }
+  .DetailTextAdap {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    .stick {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      h4 {
+        padding-inline: 10px;
+        padding-block: 3px;
+        font-size: clamp(0.625rem, 0.557rem + 0.34vw, 0.813rem);
+        border-radius: 50px;
+      }
+      .yellow {
+        border: 1px solid orange;
+        background: rgba(255, 166, 0, 0.216);
+        color: orange;
+      }
+      .green {
+        border: 1px solid limegreen;
+        background: rgba(0, 128, 0, 0.158);
+        color: limegreen;
+      }
+       a {
+        border:  2px solid white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       }
+    }
+    h2 {
+      font-size: clamp(1.25rem, 1.023rem + 1.14vw, 1.875rem);
+    }
+    h5 {
+      font-weight: 400;
+      font-size: clamp(0.75rem, 0.682rem + 0.34vw, 0.938rem);
+      i {
+        color: orange;
+      }
+    }
+    .blocks {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      span {
+        font-size: clamp(0.75rem, 0.682rem + 0.34vw, 0.938rem);
+        padding-inline: 10px;
+        padding-block: 3px;
+        background: rgba(128, 128, 128, 0.404);
+        border-radius: 50px;
+      }
+    }
+    .DataTimeRate {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      h5 {
+        font-size: clamp(0.75rem, 0.682rem + 0.34vw, 0.938rem);
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        span {
+          color: orange;
+          font-size: 18px;
+        }
+      }
+    }
+    h3 {
+      font-size: clamp(0.938rem, 0.824rem + 0.57vw, 1.25rem);
+    }
+    hr {
+      width: 100%;
+    }
+    p {
+      width: 100%;
+      font-size: clamp(0.75rem, 0.682rem + 0.34vw, 0.938rem);
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .Details {
+    height: 350px;
   }
 }

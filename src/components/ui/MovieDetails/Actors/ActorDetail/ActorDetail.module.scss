@@ -21,9 +21,9 @@
         align-items: start;
         flex-direction: column;
         gap: 20px;
-        width: 70%;
+        width: 65%;
         h2 {
-          font-size: clamp(1.125rem, 0.852rem + 1.36vw, 1.875rem);
+          font-size: clamp(0.938rem, 0.597rem + 1.7vw, 1.875rem);
         }
         div {
           display: flex;
@@ -32,10 +32,10 @@
           gap: 10px;
           width: 100%;
           h3 {
-            font-size: clamp(0.938rem, 0.824rem + 0.57vw, 1.25rem);
+            font-size: clamp(0.813rem, 0.653rem + 0.8vw, 1.25rem);
           }
           p {
-            font-size: 15px;
+            font-size: clamp(0.625rem, 0.511rem + 0.57vw, 0.938rem);
             line-height: 25px;
             span {
               cursor: pointer;
@@ -46,32 +46,136 @@
         }
       }
     }
+    .actorMovieAdap {
+      display: none;
+    }
     h2 {
-      font-size: 25px;
+      font-size: clamp(0.938rem, 0.597rem + 1.7vw, 1.875rem);
     }
     .actorInfo {
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
+      flex-wrap: wrap;
+      gap: 30px;
       .text {
         display: flex;
         align-items: start;
         flex-direction: column;
         gap: 10px;
         h3 {
-          font-size: 18px;
+          font-size: clamp(0.938rem, 0.869rem + 0.34vw, 1.125rem);
         }
         h4 {
           display: flex;
           align-items: center;
           gap: 5px;
-          font-size: 15px;
+          font-size: clamp(0.75rem, 0.682rem + 0.34vw, 0.938rem);
           font-weight: 300;
           span {
             font-size: 15px;
             color: yellow;
           }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .ActorDetail {
+    .content {
+      .mainInfo {
+        .mainImg {
+          width: 30%;
+          height: 400px;
+        }
+        .text {
+          .actorMovie {
+            display: none;
+          }
+        }
+      }
+      .actorMovieAdap {
+        display: block;
+        width: 100%;
+        height: 400px;
+        overflow-x: scroll;
+      }
+    }
+  }
+}
+@media (max-width: 870px) {
+  .ActorDetail {
+    .content {
+      .mainInfo {
+        .mainImg {
+          width: 30%;
+          height: 300px;
+        }
+        .text {
+          .actorMovie {
+            display: none;
+          }
+          div {
+            p {
+              line-height: 20px;
+            }
+          }
+        }
+      }
+      .actorMovieAdap {
+        display: block;
+        width: 100%;
+        height: 400px;
+        overflow-x: scroll;
+      }
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .ActorDetail {
+    .content {
+      .mainInfo {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        .mainImg {
+          width: 300px;
+          height: 300px;
+          border-radius: 50%;
+        }
+        .text {
+          width: 100%;
+          .actorMovie {
+            display: none;
+          }
+          div {
+            p {
+              line-height: 20px;
+            }
+          }
+        }
+      }
+      .actorMovieAdap {
+        display: block;
+        width: 100%;
+        height: 370px;
+        overflow-x: scroll;
+      }
+    }
+  }
+}
+@media (max-width: 400px) {
+  .ActorDetail {
+    .content {
+      .mainInfo {
+        .mainImg {
+          width: 200px;
+          height: 200px;
         }
       }
     }

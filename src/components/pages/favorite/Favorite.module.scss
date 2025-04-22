@@ -5,23 +5,24 @@
     align-items: start;
     flex-direction: column;
     gap: 40px;
+    width: 100%;
     h2 {
       display: flex;
       align-items: center;
       gap: 10px;
       color: orange;
-      font-size: 30px;
+      font-size: clamp(1.563rem, 1.222rem + 1.7vw, 2.5rem);
       span {
-        font-size: 25px;
-        font-weight: 500;
         color: white;
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid gray;
+        padding-bottom: 5px;
+        font-size: clamp(1.25rem, 1.023rem + 1.14vw, 1.875rem);
       }
     }
     .Cards {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: start;
       flex-wrap: wrap;
       gap: 30px;
       width: 100%;
@@ -52,7 +53,7 @@
           align-items: center;
           justify-content: center;
           a {
-            font-size: 20px;
+            font-size: clamp(0.75rem, 0.568rem + 0.91vw, 1.25rem);
             width: 90%;
             height: 90%;
             border: 1px solid gray;
@@ -100,6 +101,88 @@
           p {
             font-size: 13px;
             color: darkgray;
+          }
+        }
+      }
+    }
+    .noneImg {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .Favorite {
+    .content {
+      .Cards {
+        .Card {
+          width: 200px;
+          height: 350px;
+          img {
+            width: 200px;
+            height: 220px;
+          }
+        }
+      }
+     
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .Favorite {
+    .content {
+      .Cards {
+        .Card {
+          width: 180px;
+          height: 330px;
+          border-radius: 5px;
+          .favorite {
+            width: 30px;
+            height: 30px;
+           
+          }
+          .rate {
+            width: 30px;
+            height: 30px;
+          }
+          img {
+            width: 180px;
+            height: 200px;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+  .Favorite {
+    .content {
+      .Cards {
+        .Card {
+          width: 160px;
+          height: 280px;
+          border-radius: 5px;
+          .text {
+            gap: 2px;
+            h3 {
+              font-size: 15px;
+            }
+            h4 {
+              font-size: 10px;
+            }
+            p {
+              font-size: 10px;
+              display: none;
+            }
+          }
+          img {
+            width: 160px;
+            height: 170px;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
           }
         }
       }

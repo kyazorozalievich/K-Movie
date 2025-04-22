@@ -141,6 +141,78 @@ const Details = () => {
           </div>
         </div>
       </section>
+      <div className="container">
+        <div className={scss.DetailTextAdap}>
+          <div className={scss.stick}>
+            <h4 className={scss.yellow}>{dtl.status}</h4>
+            <h4 className={scss.green}>{dtl.release_date?.slice(0, 4)}</h4>
+            <a onClick={() => addToFavorite()}>
+              {heart ? (
+                <FaHeart
+                  style={{
+                    color: "red",
+                  }}
+                />
+              ) : (
+                <FaRegHeart />
+              )}
+            </a>
+          </div>
+          <h2>{dtl.title}</h2>
+          <h5>
+            <i>
+              {dtl.tagline
+                ? dtl.tagline
+                : language === "ru-RU"
+                ? "Данные отсутвуют"
+                : "No data available"}
+            </i>
+          </h5>
+          <div className={scss.blocks}>
+            {dtl.genres?.map((el, idx) => (
+              <span key={idx}>{el.name}</span>
+            ))}
+          </div>
+          <div className={scss.DataTimeRate}>
+            <h5>
+              <span>
+                <HiCalendarDateRange />
+              </span>
+              {String(dtl.release_date).replaceAll("-", "/")}
+            </h5>
+            <h5>
+              <span>
+                <FaRegClock />
+              </span>
+              {Math.floor(dtl.runtime / 60) + "h"}{" "}
+              {Math.floor(dtl.runtime % 60) + "m"}
+            </h5>
+            <h5>
+              <span>
+                <IoIosStar />
+              </span>
+              {Math.round(dtl.vote_average * 10)} ({dtl.vote_count} votes)
+            </h5>
+          </div>
+          <h3>{language === "ru-RU" ? "Обзор" : "Review"}</h3>
+          <hr />
+          <p>
+            {dtl.overview ? (
+              dtl.length > 600 ? (
+                dtl.overview.slice(0, 600) + "..."
+              ) : (
+                dtl.overview
+              )
+            ) : (
+              <i>
+                {language === "ru-RU"
+                  ? "Данные отсутвуют"
+                  : "No data available"}
+              </i>
+            )}
+          </p>
+        </div>
+      </div>
       <Actors actorId={dtl.id} apiKey={api_key} />
       <Trailers trailerId={dtl.id} apiKey={api_key} />
     </>

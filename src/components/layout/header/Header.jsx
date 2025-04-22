@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { MovieContext } from "../../context";
 import { BsFillBookmarkHeartFill } from "react-icons/bs";
 import { MdOutlineClear } from "react-icons/md";
+import { RiMenu3Fill } from "react-icons/ri";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ const Header = () => {
   const [langOpen, setLangOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [password, setPassword] = useState("");
+  const [adap, setAdap] = useState(false);
   const { language, setLanguage, favorite } = useContext(MovieContext);
 
   function toData() {
@@ -99,33 +101,111 @@ const Header = () => {
             <a onClick={() => setModalOpen(true)}>
               <FaPiedPiperSquare />
             </a>
-            {modalOpen && (
-              <div className={scss.dataModalBg}>
-                <div className={scss.dataModal}>
-                  <a>
-                    <MdOutlineClear />
+          </div>
+          <div className={scss.header__adap}>
+            <a onClick={() => setAdap(true)}>
+              <RiMenu3Fill />
+            </a>
+            {adap && (
+              <div className={scss.block}>
+                <NavLink
+                  to="/"
+                  className={scss.nav}
+                  onClick={() => setAdap(false)}
+                >
+                  {language === "ru-RU" ? "Главная" : "Main"}
+                </NavLink>
+                <NavLink
+                  to="/popular"
+                  className={scss.nav}
+                  onClick={() => setAdap(false)}
+                >
+                  {language === "ru-RU" ? "Популярное" : "Popular"}
+                </NavLink>
+                <NavLink
+                  to="/toprated"
+                  className={scss.nav}
+                  onClick={() => setAdap(false)}
+                >
+                  {language === "ru-RU" ? "Топ в Рейтинге" : "Top Rated"}
+                </NavLink>
+                <div className={scss.language}>
+                  <a onClick={() => setLangOpen(!langOpen)}>
+                    {language === "ru-RU" ? "Языки" : "Language"}
+                    <FaAngleDown />
                   </a>
-                  <input
-                    type="text"
-                    placeholder={
-                      language === "ru-RU"
-                        ? "Введите пароль..."
-                        : "Enter your password..."
-                    }
-                    onChange={(e) => setPassword(e.target.value)}
-                    onKeyDown={(e) => {
-                      e.key === "Enter" && toData();
-                    }}
-                  />
-                  <button onClick={() => toData()}>
-                    {language === "ru-RU" ? "Потвердить" : "Confirm"}
-                  </button>
+                  {langOpen && (
+                    <div className={scss.langBlock}>
+                      <span
+                        onClick={() => {
+                          setLanguage("ru-RU"),
+                            setLangOpen(false),
+                            setAdap(false);
+                        }}
+                      >
+                        {language === "ru-RU" ? "Русский" : "Russia"}
+                      </span>
+                      <span
+                        onClick={() => {
+                          setLanguage("en-US"),
+                            setLangOpen(false),
+                            setAdap(false);
+                        }}
+                      >
+                        {language === "ru-RU" ? "Английский" : "English"}
+                      </span>
+                    </div>
+                  )}
                 </div>
+                <button
+                  onClick={() => {
+                    navigate(`/search`), setAdap(false);
+                  }}
+                >
+                  {language === "ru-RU" ? "Искать" : "Search"}
+                  <FaAngleRight />
+                </button>
+                <Link to="/favorite" onClick={() => setAdap(false)}>
+                  {language === "ru-RU" ? "Избранное" : "Favorite"}
+                  <FaAngleRight />
+                </Link>
+                <a onClick={() => setModalOpen(true)}>
+                  API
+                  <FaAngleRight />
+                </a>
+                <a onClick={() => setAdap(false)}>
+                  {language === "ru-RU" ? "Закрыть" : "Close"}{" "}
+                  <MdOutlineClear />
+                </a>
               </div>
             )}
           </div>
         </div>
       </div>
+      {modalOpen && (
+        <div className={scss.dataModalBg}>
+          <div className={scss.dataModal}>
+            <a onClick={() => setModalOpen(false)}>
+              <MdOutlineClear />
+            </a>
+            <input
+              type="text"
+              placeholder={
+                language === "ru-RU"
+                  ? "Введите пароль..."
+                  : "Enter your password..."
+              }
+              onChange={(e) => setPassword(e.target.value)}
+              onKeyDown={(e) => {
+                e.key === "Enter" && toData();
+              }}
+            />
+            <button onClick={() => toData()}>
+              {language === "ru-RU" ? "Потвердить" : "Confirm"}
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

@@ -18,7 +18,7 @@
       align-items: center;
       justify-content: space-between;
       input {
-        width: 90%;
+        width: 80%;
         height: 100%;
         background: transparent;
         border: none;
@@ -26,7 +26,7 @@
         color: white;
       }
       button {
-        width: 10%;
+        width: 20%;
         height: 100%;
         border-radius: 50px;
         border: none;
@@ -40,12 +40,12 @@
       align-items: center;
       gap: 10px;
       color: orange;
-      font-size: 40px;
+      font-size: clamp(1.563rem, 1.222rem + 1.7vw, 2.5rem);
       span {
         color: white;
         border-bottom: 1px solid gray;
         padding-bottom: 5px;
-        font-size: 30px;
+        font-size: clamp(1.25rem, 1.023rem + 1.14vw, 1.875rem);
       }
     }
     .movies {
@@ -62,7 +62,6 @@
       width: 100%;
       height: 70vh;
       .loader {
-        
         width: 80px;
         height: 80px;
         border-radius: 50%;
@@ -90,6 +89,19 @@
         }
         100% {
           transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .Search {
+    .content {
+      .input {
+        height: 40px;
+        button {
+          font-size: 13px;
         }
       }
     }

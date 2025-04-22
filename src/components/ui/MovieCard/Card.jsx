@@ -45,8 +45,8 @@ const Card = ({ el }) => {
         </h4>
         <p>
           {el.overview ? (
-            el.overview.length > 45 ? (
-              el.overview.slice(0, 45) + "..."
+            el.overview.length > 40 ? (
+              el.overview.slice(0, 40) + "..."
             ) : (
               el.overview
             )

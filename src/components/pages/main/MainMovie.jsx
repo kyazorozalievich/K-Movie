@@ -61,7 +61,7 @@ const MainMovie = () => {
           <div className={scss.movieContent}>
             <h2>
               <RiMovieAiLine />
-              <span>
+              <span> 
                 {" "}
                 {language === "ru-RU"
                   ? "Фильмы в Топ-Рейтинге"

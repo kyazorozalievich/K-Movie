@@ -50,7 +50,7 @@ const Footer = () => {
                 <IoLogoWhatsapp />
               </a>
               <a
-                href="https://www.instagram.com/k_orozalievich"
+                href="https://www.instagram.com/k_orozalievich" 
                 target="_blank"
               >
                 <RiInstagramFill />

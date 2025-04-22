@@ -85,6 +85,10 @@ const ActorDetail = () => {
               </div>
             </div>
           </div>
+          <div className={scss.actorMovieAdap}>
+            <h3>{language === "ru-RU" ? "Известность за" : "Fame for"}</h3>
+            <ActorMovie id={actorid} />
+          </div>
           <h2>
             {language === "ru-RU"
               ? "Персональная информация"

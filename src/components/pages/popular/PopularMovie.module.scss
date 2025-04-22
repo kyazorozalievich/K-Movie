@@ -48,12 +48,12 @@
       align-items: center;
       gap: 10px;
       color: orange;
-      font-size: 40px;
+      font-size: clamp(1.563rem, 1.222rem + 1.7vw, 2.5rem);
       span {
         color: white;
         border-bottom: 1px solid gray;
         padding-bottom: 5px;
-        font-size: 30px;
+        font-size: clamp(1.25rem, 1.023rem + 1.14vw, 1.875rem);
       }
     }
     .blocks {
@@ -74,24 +74,25 @@
         align-items: center;
         gap: 5px;
         h3 {
-          font-size: 30px;
+          font-size: clamp(1.125rem, 0.852rem + 1.36vw, 1.875rem);
           font-weight: 400;
           margin-inline: 10px;
         }
         .one {
-          font-size: 25px;
+          font-size: clamp(0.938rem, 0.71rem + 1.14vw, 1.563rem);
         }
         .two {
-          font-size: 20px;
+          font-size: clamp(0.813rem, 0.653rem + 0.8vw, 1.25rem);
         }
         .three {
-          font-size: 15px;
+          font-size: clamp(0.625rem, 0.511rem + 0.57vw, 0.938rem);
         }
       }
       h1 {
-        font-size: 40px;
+        font-size: clamp(1.563rem, 1.222rem + 1.7vw, 2.5rem);
         cursor: pointer;
       }
     }
   }
 }
+

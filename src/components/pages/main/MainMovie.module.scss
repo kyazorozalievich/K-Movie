@@ -17,9 +17,9 @@
         align-items: center;
         gap: 10px;
         color: orange;
-        font-size: 30px;
+        font-size: clamp(1.25rem, 1.023rem + 1.14vw, 1.875rem);
         span {
-          font-size: 25px;
+          font-size: clamp(1.125rem, 0.966rem + 0.8vw, 1.563rem);
           font-weight: 500;
           color: white;
           border-bottom: 1px solid white;
@@ -51,6 +51,42 @@
             color: rgb(0, 123, 255);
             transform: scale(1.05);
           }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .MainMovie {
+    .content {
+      .movieContent {
+        .movies {
+          height: 370px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 600px) {
+  .MainMovie {
+    padding-block: 20px;
+    .content {
+      .movieContent {
+        .movies {
+          height: 350px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .MainMovie {
+    .content {
+      .movieContent {
+        .movies {
+          height: 300px;
         }
       }
     }

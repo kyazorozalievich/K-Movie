@@ -55,7 +55,7 @@ const MainWelcome = () => {
                   backgroundImage: `url(https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces/${el.backdrop_path})`,
                 }}
               >
-                <div className={scss.bg}>
+                <div className={scss.bg}> 
                   <div className="container">
                     <div className={scss.rating_time}>
                       <h4>
@@ -84,6 +84,7 @@ const MainWelcome = () => {
                         : " Watch Details"}
                     </button>
                   </div>
+                  
                 </div>
               </div>
             </SwiperSlide>
