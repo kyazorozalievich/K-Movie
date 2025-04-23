@@ -111,7 +111,7 @@ const Data = () => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "dark",
+      theme: "dark", 
     });
   };
   const copySearch = async () => {

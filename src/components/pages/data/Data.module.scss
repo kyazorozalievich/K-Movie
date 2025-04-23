@@ -4,13 +4,15 @@
     display: flex;
     align-items: start;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 40px;
+    width: 100%;
     .api {
       display: flex;
       align-items: start;
       flex-direction: column;
       gap: 10px;
-      width: 600px;
+      width: 45%;
       height: 200px;
       padding-block: 20px;
       padding-inline: 20px;
@@ -22,7 +24,7 @@
         box-shadow: 0px 5px 10px white;
       }
       h2 {
-        font-size: 20px;
+        font-size: clamp(0.938rem, 0.824rem + 0.57vw, 1.25rem);
         font-weight: 500;
       }
       p {
@@ -35,6 +37,7 @@
         padding-left: 10px;
         border-radius: 5px;
         color: gray;
+        font-size: clamp(0.625rem, 0.511rem + 0.57vw, 0.938rem);
       }
       button {
         background: transparent;
@@ -44,6 +47,17 @@
         width: 120px;
         height: 30px;
         border: 2px solid white;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .Data {
+    .content {
+      .api {
+        gap: 20px;
+        width: 100%;
       }
     }
   }
