@@ -123,8 +123,8 @@ const Details = () => {
                 <hr />
                 <p>
                   {dtl.overview ? (
-                    dtl.length > 600 ? (
-                      dtl.overview.slice(0, 600) + "..."
+                    dtl.overview.length > 300 ? (
+                      dtl.overview.slice(0, 300) + "..."
                     ) : (
                       dtl.overview
                     )
